@@ -6,13 +6,12 @@ const server = new WebSocketServer({
 });
 
 server.on("connection", async (socket)=>{
-    const res = await client.user.create({
+    client.user.create({
         data: {
             username: Math.random().toString(),
             password: Math.random().toString()
         }
     })
-    console.log(res);
     
     socket.send("hii there you are connected to the server")
 })
